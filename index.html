@@ -6,7 +6,9 @@
     <title>МИНУСРАЗМЕР Новосибирск — Аппаратная коррекция + Диетология</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        /* ===== БАЗА ===== */
+        /* ============================================================
+                   БАЗА И ПЕРЕМЕННЫЕ
+                   ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -19,6 +21,7 @@
             color: #1A2A3A;
             line-height: 1.6;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -27,32 +30,44 @@
             padding: 0 24px;
         }
 
-        /* ===== ЦВЕТА ===== */
         :root {
             --primary: #0A66C2;
             --primary-light: #1A86E8;
             --primary-dark: #0A4A8A;
-            --secondary: #4A9FE0;
             --accent: #00B4D8;
             --gradient: linear-gradient(135deg, #0A66C2, #00B4D8);
+            --gradient-hover: linear-gradient(135deg, #1A86E8, #00D4FF);
             --bg-light: #EEF5FF;
             --text-dark: #1A2A3A;
             --text-gray: #5A6A7A;
             --white: #FFFFFF;
-            --shadow: 0 8px 40px rgba(10, 102, 194, 0.10);
+            --shadow: 0 8px 40px rgba(10, 102, 194, 0.08);
             --shadow-hover: 0 12px 60px rgba(10, 102, 194, 0.18);
             --radius: 20px;
+            --radius-sm: 12px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* ===== ШАПКА ===== */
+        /* ============================================================
+                   ШАПКА (ЛИПКАЯ)
+                   ============================================================ */
         .header {
-            background: var(--white);
-            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 14px 0;
             box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(10, 102, 194, 0.04);
+            transition: var(--transition);
         }
+
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+        }
+
         .header .container {
             display: flex;
             align-items: center;
@@ -60,72 +75,123 @@
             flex-wrap: wrap;
             gap: 16px;
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 14px;
+            text-decoration: none;
         }
+
         .logo-icon {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+
         .logo-icon svg {
-            height: 48px;
+            height: 44px;
             width: auto;
+            transition: transform 0.3s ease;
         }
+
+        .logo-icon svg:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
         .logo-text {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: var(--primary-dark);
         }
+
         .logo-text span {
             color: var(--primary);
         }
+
         .logo-sub {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 400;
             color: var(--text-gray);
             border-left: 2px solid #D0DDE8;
-            padding-left: 16px;
+            padding-left: 14px;
         }
+
         .header-phone {
             font-weight: 700;
-            font-size: 18px;
+            font-size: 17px;
             color: var(--primary);
             text-decoration: none;
             background: var(--bg-light);
-            padding: 10px 24px;
+            padding: 10px 22px;
             border-radius: 40px;
-            transition: 0.3s;
-            border: 1px solid rgba(10, 102, 194, 0.12);
+            transition: var(--transition);
+            border: 1px solid rgba(10, 102, 194, 0.10);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
+
         .header-phone:hover {
             background: var(--primary);
             color: #fff;
-            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.30);
+            box-shadow: 0 4px 24px rgba(10, 102, 194, 0.30);
+            transform: translateY(-2px);
         }
 
-        /* ===== ГЕРОЙ ===== */
+        /* ============================================================
+                   ГЕРОЙ (ПЕРВЫЙ ЭКРАН)
+                   ============================================================ */
         .hero {
-            padding: 70px 0 80px;
+            padding: 60px 0 80px;
             background: var(--bg-light);
-            border-bottom: 1px solid rgba(10, 102, 194, 0.05);
+            border-bottom: 1px solid rgba(10, 102, 194, 0.04);
+            position: relative;
+            overflow: hidden;
         }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
         .hero .container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 50px;
+            position: relative;
+            z-index: 2;
         }
+
         .hero-content {
             flex: 1 1 500px;
+            animation: fadeInUp 0.8s ease forwards;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .hero-tag {
             color: var(--primary);
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 4px;
             text-transform: uppercase;
             background: rgba(10, 102, 194, 0.08);
@@ -133,41 +199,58 @@
             border-radius: 40px;
             display: inline-block;
             margin-bottom: 20px;
+            border: 1px solid rgba(10, 102, 194, 0.06);
         }
+
         .hero h1 {
-            font-size: 52px;
+            font-size: 50px;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.08;
+            margin-bottom: 18px;
             color: var(--text-dark);
         }
+
         .hero h1 .highlight {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .hero p {
             font-size: 19px;
             color: var(--text-gray);
             max-width: 480px;
             margin-bottom: 28px;
         }
+
         .hero-stats {
             display: flex;
             gap: 36px;
             margin-bottom: 32px;
             flex-wrap: wrap;
         }
+
         .hero-stats div {
             font-size: 14px;
             color: var(--text-gray);
         }
+
         .hero-stats strong {
             display: block;
             font-size: 30px;
             color: var(--text-dark);
             font-weight: 800;
+        }
+
+        .hero-stats strong .counter {
+            display: inline-block;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .btn-primary {
@@ -180,25 +263,51 @@
             border-radius: 60px;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 30px rgba(10, 102, 194, 0.28);
-            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 30px rgba(10, 102, 194, 0.25);
+            transition: var(--transition);
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
         }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 50px rgba(10, 102, 194, 0.38);
+            box-shadow: 0 8px 50px rgba(10, 102, 194, 0.35);
+            background: var(--gradient-hover);
         }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
         .btn-wa {
             background: #25D366;
-            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.28);
-            margin-right: 12px;
+            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.25);
         }
+
         .btn-wa:hover {
             background: #20b85a;
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.38);
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.35);
         }
+
         .btn-outline {
             background: transparent;
             color: var(--primary);
@@ -209,11 +318,44 @@
             font-size: 15px;
             text-decoration: none;
             display: inline-block;
-            transition: 0.3s;
+            transition: var(--transition);
         }
+
         .btn-outline:hover {
             background: var(--primary);
             color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(10, 102, 194, 0.20);
+        }
+
+        .hero-sub-text {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-sub-text .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #25D366;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
         }
 
         .hero-image {
@@ -224,20 +366,43 @@
             text-align: center;
             box-shadow: var(--shadow);
             border: 1px solid rgba(10, 102, 194, 0.05);
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            transition: var(--transition);
         }
+
+        .hero-image:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
         .hero-image .icon-big {
+            font-size: 72px;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            animation: float 4s ease-in-out infinite;
         }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         .hero-image h3 {
             color: var(--primary-dark);
             font-weight: 700;
             font-size: 22px;
         }
+
         .hero-image p {
             color: var(--text-gray);
             font-size: 15px;
         }
+
         .hero-image .badge-blue {
             display: inline-block;
             background: var(--bg-light);
@@ -247,38 +412,103 @@
             font-weight: 600;
             font-size: 14px;
             margin: 12px 0;
+            transition: var(--transition);
         }
+
+        .hero-image .badge-blue:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
         .hero-image .bottom-text {
             background: var(--bg-light);
             padding: 14px 20px;
-            border-radius: 14px;
+            border-radius: var(--radius-sm);
             font-weight: 600;
             color: var(--text-dark);
             margin-top: 16px;
+            font-size: 15px;
+            border-left: 4px solid var(--accent);
         }
 
-        /* ===== СЕКЦИИ ===== */
+        /* ============================================================
+                   БЛОК "ЦИФРЫ ГОВОРЯТ ЗА НАС"
+                   ============================================================ */
+        .stats-block {
+            background: var(--gradient);
+            border-radius: var(--radius);
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 30px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .stats-block .stat-item {
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-block .stat-item .number {
+            font-size: 44px;
+            font-weight: 900;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .stats-block .stat-item .number .counter {
+            display: inline-block;
+        }
+
+        .stats-block .stat-item .label {
+            font-size: 15px;
+            opacity: 0.88;
+            font-weight: 400;
+        }
+
+        /* ============================================================
+                   ПРЕИМУЩЕСТВА
+                   ============================================================ */
         section {
             padding: 70px 0;
         }
+
         .section-title {
             font-size: 38px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: var(--text-dark);
         }
+
         .section-title span {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .section-sub {
             color: var(--text-gray);
             font-size: 18px;
             margin-bottom: 48px;
             max-width: 620px;
         }
+
         .section-sub.center {
             margin-left: auto;
             margin-right: auto;
@@ -290,14 +520,16 @@
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 28px;
         }
+
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 28px;
         }
+
         .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 24px;
         }
 
@@ -307,26 +539,48 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border: 1px solid rgba(10, 102, 194, 0.05);
-            transition: 0.3s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient);
+            transition: height 0.5s ease;
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
+
         .card-icon {
             font-size: 40px;
             margin-bottom: 14px;
             display: block;
         }
+
         .card h3 {
             font-size: 20px;
             margin-bottom: 8px;
             color: var(--text-dark);
         }
+
         .card p {
             color: var(--text-gray);
             font-size: 15px;
         }
+
         .card .badge {
             display: inline-block;
             background: var(--bg-light);
@@ -336,38 +590,24 @@
             font-size: 12px;
             font-weight: 600;
             margin-top: 16px;
+            transition: var(--transition);
         }
 
-        /* ===== БЛОК "ЦИФРЫ" ===== */
-        .stats-block {
-            background: var(--gradient);
-            border-radius: var(--radius);
-            padding: 50px 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 30px;
-            text-align: center;
+        .card:hover .badge {
+            background: var(--primary);
             color: #fff;
         }
-        .stats-block .stat-item .number {
-            font-size: 44px;
-            font-weight: 900;
-            display: block;
-            line-height: 1.1;
-        }
-        .stats-block .stat-item .label {
-            font-size: 16px;
-            opacity: 0.85;
-            font-weight: 400;
-        }
 
-        /* ===== ШАГИ ===== */
+        /* ============================================================
+                   ШАГИ (КАК МЫ РАБОТАЕМ)
+                   ============================================================ */
         .steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
             counter-reset: step;
         }
+
         .step-item {
             background: var(--white);
             padding: 30px 24px;
@@ -377,38 +617,57 @@
             position: relative;
             border: 1px solid rgba(10, 102, 194, 0.05);
             counter-increment: step;
+            transition: var(--transition);
         }
+
+        .step-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
         .step-item::before {
             content: counter(step);
             font-size: 40px;
             font-weight: 900;
             color: var(--primary);
-            opacity: 0.12;
+            opacity: 0.10;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+            transition: var(--transition);
         }
+
+        .step-item:hover::before {
+            opacity: 0.20;
+            transform: scale(1.1);
+        }
+
         .step-item .step-icon {
             font-size: 34px;
             display: block;
             margin-bottom: 6px;
         }
+
         .step-item h4 {
             font-size: 18px;
             color: var(--text-dark);
             margin-bottom: 4px;
         }
+
         .step-item p {
             font-size: 14px;
             color: var(--text-gray);
         }
 
-        /* ===== ТАРИФЫ ===== */
+        /* ============================================================
+                   ТАРИФЫ
+                   ============================================================ */
         .tariffs {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 28px;
             margin-top: 10px;
         }
+
         .tariff-card {
             background: var(--white);
             padding: 34px 28px;
@@ -416,16 +675,20 @@
             box-shadow: var(--shadow);
             border: 1px solid rgba(10, 102, 194, 0.05);
             text-align: center;
-            transition: 0.3s;
+            transition: var(--transition);
             position: relative;
         }
+
         .tariff-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
+
         .tariff-card.best {
             border: 2px solid var(--primary);
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
         }
+
         .tariff-card.best::before {
             content: "🔥 Самый популярный";
             position: absolute;
@@ -440,29 +703,44 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             white-space: nowrap;
+            box-shadow: 0 4px 16px rgba(10, 102, 194, 0.25);
         }
+
         .tariff-card .tariff-name {
             font-size: 20px;
             font-weight: 700;
             color: var(--text-dark);
         }
+
         .tariff-card .tariff-price {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 900;
             color: var(--primary);
             margin: 12px 0;
         }
+
         .tariff-card .tariff-price small {
             font-size: 16px;
             font-weight: 400;
             color: var(--text-gray);
         }
+
+        .tariff-card .tariff-price .old-price {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            display: block;
+            margin-top: -4px;
+        }
+
         .tariff-card ul {
             list-style: none;
             text-align: left;
             margin: 16px 0 24px;
             padding: 0;
         }
+
         .tariff-card ul li {
             padding: 6px 0;
             font-size: 15px;
@@ -470,7 +748,9 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: var(--transition);
         }
+
         .tariff-card ul li::before {
             content: "✓";
             color: var(--primary);
@@ -478,39 +758,71 @@
             font-size: 18px;
         }
 
-        /* ===== КЕЙСЫ ===== */
+        .tariff-card:hover ul li {
+            color: var(--text-dark);
+        }
+
+        .tariff-note {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 15px;
+            margin-top: 18px;
+        }
+
+        .tariff-note strong {
+            color: var(--primary);
+        }
+
+        /* ============================================================
+                   КЕЙСЫ
+                   ============================================================ */
         .case-item {
             background: var(--white);
             padding: 28px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border: 1px solid rgba(10, 102, 194, 0.05);
-            transition: 0.3s;
+            transition: var(--transition);
         }
+
         .case-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
         }
+
         .case-item .case-result {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 900;
             color: var(--primary);
         }
+
         .case-item .case-desc {
             font-size: 15px;
             color: var(--text-gray);
-            margin: 6px 0 10px;
+            margin: 4px 0 10px;
         }
+
         .case-item .case-quote {
             font-style: italic;
             color: var(--text-dark);
             font-size: 15px;
             background: var(--bg-light);
             padding: 12px 16px;
-            border-radius: 12px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent);
         }
 
-        /* ===== КАРТА ===== */
+        .case-item .case-stars {
+            color: #FFB800;
+            font-size: 18px;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* ============================================================
+                   КАРТА
+                   ============================================================ */
         .map-block {
             background: var(--white);
             border-radius: var(--radius);
@@ -522,32 +834,71 @@
             align-items: center;
             border: 1px solid rgba(10, 102, 194, 0.05);
         }
+
         .map-block .info {
             flex: 1;
             min-width: 200px;
         }
+
         .map-block .info h3 {
             font-size: 26px;
             color: var(--text-dark);
         }
+
         .map-block .info .address {
             color: var(--primary);
             font-size: 18px;
             font-weight: 600;
             margin: 8px 0;
         }
+
+        .map-block .info .address .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            cursor: pointer;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .map-block .info .address .copy-btn:hover {
+            color: var(--primary);
+        }
+
         .map-block .info .metro {
             color: var(--text-gray);
         }
+
+        .map-block .info .work-time {
+            margin: 14px 0;
+            color: var(--text-gray);
+        }
+
+        .map-block .info .work-time strong {
+            color: var(--text-dark);
+        }
+
+        .map-block .info .entrance {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
         .map-block iframe {
             flex: 2;
             min-width: 280px;
             height: 260px;
             border: 0;
-            border-radius: 14px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
         }
 
-        /* ===== FAQ ===== */
+        .map-block iframe:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* ============================================================
+                   FAQ (АККОРДЕОН)
+                   ============================================================ */
         .faq-list {
             display: flex;
             flex-direction: column;
@@ -555,13 +906,20 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
         .faq-item {
             background: var(--white);
-            border-radius: 14px;
+            border-radius: var(--radius-sm);
             box-shadow: var(--shadow);
             border: 1px solid rgba(10, 102, 194, 0.05);
             overflow: hidden;
+            transition: var(--transition);
         }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
         .faq-item summary {
             padding: 20px 28px;
             font-weight: 700;
@@ -572,72 +930,119 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: var(--transition);
         }
+
+        .faq-item summary:hover {
+            color: var(--primary);
+        }
+
         .faq-item summary::-webkit-details-marker {
             display: none;
         }
+
         .faq-item summary::after {
             content: "+";
-            font-size: 26px;
+            font-size: 28px;
             color: var(--primary);
             font-weight: 300;
+            transition: transform 0.3s ease;
         }
+
         .faq-item[open] summary::after {
             content: "−";
+            transform: rotate(180deg);
         }
+
         .faq-item .answer {
             padding: 0 28px 24px;
             color: var(--text-gray);
             font-size: 16px;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        /* ===== СЕРТИФИКАТЫ ===== */
+        /* ============================================================
+                   СЕРТИФИКАТЫ
+                   ============================================================ */
         .cert-item {
             background: var(--white);
-            padding: 24px;
+            padding: 24px 16px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             text-align: center;
             border: 1px solid rgba(10, 102, 194, 0.05);
-            transition: 0.3s;
+            transition: var(--transition);
         }
+
         .cert-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-6px) scale(1.02);
             box-shadow: var(--shadow-hover);
         }
+
         .cert-item .cert-icon {
-            font-size: 48px;
+            font-size: 44px;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
+
         .cert-item h4 {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-dark);
         }
+
         .cert-item p {
             font-size: 13px;
             color: var(--text-gray);
         }
 
-        /* ===== CTA ===== */
+        /* ============================================================
+                   CTA (ПРИЗЫВ)
+                   ============================================================ */
         .cta-block {
             background: var(--gradient);
             border-radius: var(--radius);
             padding: 50px 40px;
             text-align: center;
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
+
+        .cta-block::before {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
         .cta-block h2 {
             font-size: 34px;
             font-weight: 800;
             margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
         }
+
+        .cta-block h2 span {
+            color: #fff;
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 6px;
+        }
+
         .cta-block p {
             font-size: 18px;
-            opacity: 0.9;
+            opacity: 0.92;
             margin-bottom: 28px;
+            position: relative;
+            z-index: 2;
         }
+
         .cta-block .btn-white {
             background: #fff;
             color: var(--primary);
@@ -648,19 +1053,33 @@
             border-radius: 60px;
             text-decoration: none;
             display: inline-block;
-            transition: 0.3s;
+            transition: var(--transition);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        .cta-block .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 2;
         }
 
-        /* ===== ПЛАВАЮЩАЯ КНОПКА ===== */
+        .cta-block .btn-white:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+            background: #f8faff;
+        }
+
+        .cta-block .cta-small {
+            font-size: 14px;
+            opacity: 0.70;
+            margin-top: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================
+                   ПЛАВАЮЩАЯ КНОПКА
+                   ============================================================ */
         .floating-btn {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 28px;
+            right: 28px;
             background: var(--gradient);
             color: #fff;
             padding: 14px 28px;
@@ -669,20 +1088,27 @@
             font-size: 15px;
             box-shadow: 0 4px 30px rgba(10, 102, 194, 0.35);
             text-decoration: none;
-            z-index: 200;
-            transition: 0.3s;
+            z-index: 999;
+            transition: var(--transition);
             display: flex;
             align-items: center;
             gap: 10px;
             border: none;
             cursor: pointer;
         }
+
         .floating-btn:hover {
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.04);
             box-shadow: 0 8px 50px rgba(10, 102, 194, 0.45);
         }
 
-        /* ===== ФУТЕР ===== */
+        .floating-btn:active {
+            transform: scale(0.94);
+        }
+
+        /* ============================================================
+                   ФУТЕР
+                   ============================================================ */
         .footer {
             background: var(--white);
             border-top: 1px solid rgba(10, 102, 194, 0.05);
@@ -695,21 +1121,67 @@
             font-size: 14px;
             gap: 12px;
         }
+
         .footer a {
             color: var(--primary);
             text-decoration: none;
+            transition: var(--transition);
         }
 
-        /* ===== АДАПТИВ ===== */
+        .footer a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .footer .footer-social {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .footer .footer-social a {
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        /* ============================================================
+                   АНИМАЦИЯ ДЛЯ ПОЯВЛЕНИЯ БЛОКОВ
+                   ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+                   АДАПТИВ
+                   ============================================================ */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .stats-block .stat-item .number {
+                font-size: 34px;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 34px;
+                font-size: 32px;
             }
             .hero-stats {
                 gap: 18px;
             }
+            .hero-stats strong {
+                font-size: 24px;
+            }
             .section-title {
-                font-size: 30px;
+                font-size: 28px;
             }
             .header .container {
                 flex-direction: column;
@@ -728,7 +1200,7 @@
                 padding: 30px 20px;
             }
             .cta-block h2 {
-                font-size: 26px;
+                font-size: 24px;
             }
             .tariff-card.best::before {
                 font-size: 10px;
@@ -737,33 +1209,103 @@
                 white-space: nowrap;
             }
             .floating-btn {
-                padding: 12px 20px;
+                padding: 12px 18px;
                 font-size: 13px;
                 bottom: 16px;
                 right: 16px;
+                border-radius: 50px;
+            }
+            .floating-btn span {
+                display: none;
+            }
+            .floating-btn::after {
+                content: "📅";
+                font-size: 20px;
             }
             .stats-block {
                 padding: 30px 20px;
                 gap: 20px;
             }
             .stats-block .stat-item .number {
-                font-size: 32px;
-            }
-        }
-        @media (max-width: 480px) {
-            .hero h1 {
                 font-size: 28px;
-            }
-            .btn-primary {
-                padding: 14px 28px;
-                font-size: 14px;
-            }
-            .btn-wa {
-                margin-right: 0;
-                margin-bottom: 10px;
             }
             .hero-image {
                 padding: 24px 16px;
+            }
+            .map-block {
+                padding: 20px;
+            }
+            .map-block iframe {
+                height: 200px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-group .btn-primary {
+                text-align: center;
+            }
+            .footer {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer .footer-social {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .btn-primary {
+                padding: 14px 24px;
+                font-size: 14px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .logo-text {
+                font-size: 20px;
+            }
+            .logo-icon svg {
+                height: 36px;
+            }
+            .header-phone {
+                font-size: 15px;
+                padding: 8px 16px;
+                justify-content: center;
+            }
+            .tariff-card {
+                padding: 24px 16px;
+            }
+            .tariff-card .tariff-price {
+                font-size: 30px;
+            }
+            .cta-block h2 {
+                font-size: 20px;
+            }
+            .cta-block p {
+                font-size: 15px;
+            }
+            .cta-block .btn-white {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+            .floating-btn {
+                bottom: 12px;
+                right: 12px;
+                padding: 12px 16px;
+            }
+            .floating-btn::after {
+                content: "📅";
+                font-size: 18px;
             }
         }
     </style>
@@ -771,13 +1313,15 @@
 
 <body>
 
-    <!-- ===== ШАПКА ===== -->
-    <header class="header">
+    <!-- ============================================================
+    ШАПКА
+    ============================================================ -->
+    <header class="header" id="header">
         <div class="container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <div class="logo-icon">
-                    <!-- ИКОНКА-ФИГУРА (без текста, чистая фигура с линией коррекции) -->
-                    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- ИКОНКА-ФИГУРА (как просили) -->
+                    <svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="22" r="10" stroke="#0A66C2" stroke-width="3"/>
                         <line x1="50" y1="32" x2="50" y2="40" stroke="#0A66C2" stroke-width="3" stroke-linecap="round"/>
                         <path d="M38 40 L62 40 L62 46 Q62 70 50 78 Q38 70 38 46 V40" stroke="#0A66C2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -792,12 +1336,17 @@
                     <span class="logo-text">МИНУС<span>РАЗМЕР</span></span>
                 </div>
                 <div class="logo-sub">Аппаратная коррекция + Диетология</div>
-            </div>
-            <a href="tel:+79999999999" class="header-phone">📞 +7 (999) 999-99-99</a>
+            </a>
+            <a href="tel:+79999999999" class="header-phone">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                +7 (999) 999-99-99
+            </a>
         </div>
     </header>
 
-    <!-- ===== ГЕРОЙ ===== -->
+    <!-- ============================================================
+    ГЕРОЙ
+    ============================================================ -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -808,15 +1357,31 @@
                 </h1>
                 <p>Аппаратная коррекция фигуры + персональный план питания. Ваше тело — это машина, мы просто настроим её.</p>
                 <div class="hero-stats">
-                    <div><strong>−15 см</strong> в объёме за 10 сеансов</div>
-                    <div><strong>94%</strong> эффективность</div>
-                    <div><strong>127+</strong> довольных клиентов</div>
+                    <div>
+                        <strong><span class="counter" data-target="15">0</span> см</strong>
+                        в объёме за 10 сеансов
+                    </div>
+                    <div>
+                        <strong><span class="counter" data-target="94">0</span>%</strong>
+                        эффективность
+                    </div>
+                    <div>
+                        <strong><span class="counter" data-target="127">0</span>+</strong>
+                        довольных клиентов
+                    </div>
                 </div>
-                <div>
-                    <a href="https://wa.me/79999999999?text=Привет!%20Записываюсь%20на%20консультацию%20в%20МИНУСРАЗМЕР" class="btn-primary btn-wa">📱 Записаться на консультацию</a>
-                    <a href="#tariffs" class="btn-primary" style="margin-top:12px;">⬇ Выбрать курс</a>
+                <div class="btn-group">
+                    <a href="#cta" class="btn-primary btn-wa">
+                        📱 Записаться на консультацию
+                    </a>
+                    <a href="#tariffs" class="btn-primary">
+                        ⬇ Выбрать курс
+                    </a>
                 </div>
-                <p style="font-size:14px; color:var(--text-gray); margin-top:16px;">* Консультация бесплатна. Осталось 4 места на этой неделе.</p>
+                <div class="hero-sub-text">
+                    <span class="dot"></span>
+                    * Консультация бесплатна. Осталось <strong>4 места</strong> на этой неделе.
+                </div>
             </div>
             <div class="hero-image">
                 <span class="icon-big">⚙️</span>
@@ -828,61 +1393,65 @@
         </div>
     </section>
 
-    <!-- ===== ЦИФРЫ ===== -->
+    <!-- ============================================================
+    ЦИФРЫ
+    ============================================================ -->
     <section style="padding-top:0;">
         <div class="container">
-            <div class="stats-block">
+            <div class="stats-block reveal">
                 <div class="stat-item">
-                    <span class="number">127+</span>
+                    <span class="number"><span class="counter" data-target="127">0</span>+</span>
                     <span class="label">клиентов уже с нами</span>
                 </div>
                 <div class="stat-item">
-                    <span class="number">−12 см</span>
+                    <span class="number">−<span class="counter" data-target="12">0</span> см</span>
                     <span class="label">средний результат</span>
                 </div>
                 <div class="stat-item">
-                    <span class="number">94%</span>
+                    <span class="number"><span class="counter" data-target="94">0</span>%</span>
                     <span class="label">достигают результата</span>
                 </div>
                 <div class="stat-item">
-                    <span class="number">3 года</span>
-                    <span class="label">успешной работы</span>
+                    <span class="number"><span class="counter" data-target="3">0</span>+</span>
+                    <span class="label">года успешной работы</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <!-- ============================================================
+    ПРЕИМУЩЕСТВА
+    ============================================================ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Технология <span>коррекции</span></h2>
-            <p class="section-sub">Мы сочетаем передовые аппараты и персонализированный подход. Каждый сеанс просчитан до сантиметра.</p>
+            <h2 class="section-title reveal">Технология <span>коррекции</span></h2>
+            <p class="section-sub reveal">Мы сочетаем передовые аппараты и персонализированный подход. Каждый сеанс просчитан до сантиметра.</p>
             <div class="grid-2">
-                <div class="card">
+                <div class="card reveal">
                     <span class="card-icon">🔬</span>
                     <h3>Аппаратное моделирование без боли</h3>
                     <p>Разбивает фиброзные отложения, убирает «апельсиновую корку» и моделирует контуры тела.</p>
                     <span class="badge">Без боли</span>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <span class="card-icon">🥗</span>
                     <h3>Питание, которое вы полюбите</h3>
                     <p>Не просто «не есть», а есть правильные продукты в нужное время. Мы даём формулу, а не меню.</p>
                     <span class="badge">Персонально</span>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <span class="card-icon">📏</span>
                     <h3>Гарантия результата — или бесплатно</h3>
                     <p>Если результат не будет достигнут, мы продолжаем работать бесплатно. Это закреплено в договоре.</p>
                     <span class="badge">Честно</span>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <span class="card-icon">🧠</span>
                     <h3>Персональный разбор за 15 минут</h3>
                     <p>Разбираем ваш образ жизни, питание и ставим цели. Строим индивидуальный план коррекции.</p>
                     <span class="badge">Экспертно</span>
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <span class="card-icon">📍</span>
                     <h3>Удобное расположение</h3>
                     <p>3 минуты от метро «Золотая Нива». Бесплатная парковка у входа.</p>
@@ -892,28 +1461,30 @@
         </div>
     </section>
 
-    <!-- ===== КАК МЫ РАБОТАЕМ ===== -->
+    <!-- ============================================================
+    КАК МЫ РАБОТАЕМ
+    ============================================================ -->
     <section style="background: var(--bg-light);">
         <div class="container">
-            <h2 class="section-title">Как мы <span>работаем</span></h2>
-            <p class="section-sub">4 простых шага к вашему новому телу. Первые изменения уже после 3-го сеанса.</p>
+            <h2 class="section-title reveal">Как мы <span>работаем</span></h2>
+            <p class="section-sub reveal">4 простых шага к вашему новому телу. Первые изменения уже после 3-го сеанса.</p>
             <div class="steps">
-                <div class="step-item">
+                <div class="step-item reveal">
                     <span class="step-icon">🤝</span>
                     <h4>Знакомство и разбор целей</h4>
                     <p>Приходите на консультацию, обсуждаем ваши цели и проблемные зоны</p>
                 </div>
-                <div class="step-item">
+                <div class="step-item reveal">
                     <span class="step-icon">⚙️</span>
                     <h4>Начинаем менять тело с первого сеанса</h4>
                     <p>10–15 сеансов по индивидуальному протоколу</p>
                 </div>
-                <div class="step-item">
+                <div class="step-item reveal">
                     <span class="step-icon">🥗</span>
                     <h4>Едите вкусно и худеете</h4>
                     <p>Получаете план питания, который не вызывает стресса</p>
                 </div>
-                <div class="step-item">
+                <div class="step-item reveal">
                     <span class="step-icon">🎯</span>
                     <h4>Замеры подтверждают: вы минус размер</h4>
                     <p>Фиксируем результат и закрепляем его</p>
@@ -922,15 +1493,20 @@
         </div>
     </section>
 
-    <!-- ===== ТАРИФЫ ===== -->
+    <!-- ============================================================
+    ТАРИФЫ
+    ============================================================ -->
     <section id="tariffs">
         <div class="container">
-            <h2 class="section-title">Выберите <span>свой курс</span></h2>
-            <p class="section-sub">Подберите программу, которая подходит именно вам</p>
+            <h2 class="section-title reveal">Выберите <span>свой курс</span></h2>
+            <p class="section-sub reveal">Подберите программу, которая подходит именно вам</p>
             <div class="tariffs">
-                <div class="tariff-card">
+                <div class="tariff-card reveal">
                     <div class="tariff-name">🚀 Экспресс</div>
-                    <div class="tariff-price">8 900 <small>₽</small></div>
+                    <div class="tariff-price">
+                        8 900 <small>₽</small>
+                        <span class="old-price">12 900 ₽</span>
+                    </div>
                     <ul>
                         <li>5 сеансов аппаратной коррекции</li>
                         <li>Базовые рекомендации по питанию</li>
@@ -938,9 +1514,12 @@
                     </ul>
                     <a href="#cta" class="btn-outline">Выбрать →</a>
                 </div>
-                <div class="tariff-card best">
+                <div class="tariff-card best reveal">
                     <div class="tariff-name">🔥 Трансформация</div>
-                    <div class="tariff-price">16 900 <small>₽</small></div>
+                    <div class="tariff-price">
+                        16 900 <small>₽</small>
+                        <span class="old-price">24 900 ₽</span>
+                    </div>
                     <ul>
                         <li>10 сеансов аппаратной коррекции</li>
                         <li>Полный план питания на месяц</li>
@@ -949,9 +1528,12 @@
                     </ul>
                     <a href="#cta" class="btn-primary" style="padding:12px 40px;">Выбрать</a>
                 </div>
-                <div class="tariff-card">
+                <div class="tariff-card reveal">
                     <div class="tariff-name">👑 VIP-Перезагрузка</div>
-                    <div class="tariff-price">25 900 <small>₽</small></div>
+                    <div class="tariff-price">
+                        25 900 <small>₽</small>
+                        <span class="old-price">35 900 ₽</span>
+                    </div>
                     <ul>
                         <li>15 сеансов аппаратной коррекции</li>
                         <li>Полный план питания на месяц</li>
@@ -962,29 +1544,34 @@
                     <a href="#cta" class="btn-outline">Выбрать →</a>
                 </div>
             </div>
-            <p style="text-align:center; color:var(--text-gray); font-size:15px; margin-top:16px;">
-                * Возможна рассрочка без процентов. Уточните при записи.
-            </p>
+            <div class="tariff-note reveal">
+                * Возможна <strong>рассрочка без процентов</strong>. Уточните при записи.
+            </div>
         </div>
     </section>
 
-    <!-- ===== КЕЙСЫ ===== -->
+    <!-- ============================================================
+    КЕЙСЫ
+    ============================================================ -->
     <section style="background: var(--bg-light);">
         <div class="container">
-            <h2 class="section-title">Реальные <span>результаты</span></h2>
-            <p class="section-sub">Наши клиенты уже изменили свою жизнь. Теперь ваша очередь.</p>
+            <h2 class="section-title reveal">Реальные <span>результаты</span></h2>
+            <p class="section-sub reveal">Наши клиенты уже изменили свою жизнь. Теперь ваша очередь.</p>
             <div class="grid-3">
-                <div class="case-item">
+                <div class="case-item reveal">
+                    <span class="case-stars">⭐⭐⭐⭐⭐</span>
                     <div class="case-result">−12 см</div>
                     <div class="case-desc">Мария, 38 лет — за 10 сеансов</div>
                     <div class="case-quote">«Результат виден сразу. Я счастлива, что наконец-то убрала живот после вторых родов»</div>
                 </div>
-                <div class="case-item">
+                <div class="case-item reveal">
+                    <span class="case-stars">⭐⭐⭐⭐⭐</span>
                     <div class="case-result">−8 см</div>
                     <div class="case-desc">Анна, 45 лет — за 7 сеансов</div>
                     <div class="case-quote">«Без диет и голодовок. Я просто ем то, что мне сказали, и хожу на процедуры»</div>
                 </div>
-                <div class="case-item">
+                <div class="case-item reveal">
+                    <span class="case-stars">⭐⭐⭐⭐⭐</span>
                     <div class="case-result">−15 см</div>
                     <div class="case-desc">Ольга, 51 год — за 12 сеансов</div>
                     <div class="case-quote">«Вернула фигуру, которую носила 10 лет назад. Спасибо команде МИНУСРАЗМЕР»</div>
@@ -993,20 +1580,26 @@
         </div>
     </section>
 
-    <!-- ===== КАРТА ===== -->
+    <!-- ============================================================
+    КАРТА
+    ============================================================ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Мы <span>в Новосибирске</span></h2>
-            <p class="section-sub">Добирайтесь с комфортом — мы рядом с метро</p>
-            <div class="map-block">
+            <h2 class="section-title reveal">Мы <span>в Новосибирске</span></h2>
+            <p class="section-sub reveal">Добирайтесь с комфортом — мы рядом с метро</p>
+            <div class="map-block reveal">
                 <div class="info">
                     <h3>📍 Наш адрес</h3>
-                    <div class="address">ул. Бориса Богаткова, 248а, 6 этаж, помещение 605</div>
+                    <div class="address">
+                        ул. Бориса Богаткова, 248а, 6 этаж, помещение 605
+                        <button class="copy-btn" onclick="copyAddress()" title="Скопировать адрес">📋</button>
+                    </div>
                     <div class="metro">🚇 Метро «Золотая Нива» — 167 метров пешком</div>
-                    <p style="margin:14px 0; color:var(--text-gray);">
-                        <strong>Режим работы:</strong> Пн–Вс: 10:00 – 21:00<br>
-                        <strong>Вход:</strong> со стороны улицы, домофон 605
-                    </p>
+                    <div class="work-time">
+                        <strong>Режим работы:</strong> Пн–Вс: 10:00 – 21:00
+                    </div>
+                    <div class="entrance">🚪 Вход со стороны улицы, домофон 605</div>
+                    <br />
                     <a href="https://yandex.ru/maps/?rtext=~55.037134,82.978497&rtt=auto" target="_blank" class="btn-outline" style="padding:10px 28px; font-size:14px;">
                         🚗 Построить маршрут
                     </a>
@@ -1016,33 +1609,35 @@
         </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
+    <!-- ============================================================
+    FAQ
+    ============================================================ -->
     <section style="background: var(--bg-light);">
         <div class="container">
-            <h2 class="section-title">Часто <span>спрашивают</span></h2>
-            <p class="section-sub center" style="max-width:600px;">Ответы на главные вопросы перед записью</p>
+            <h2 class="section-title reveal">Часто <span>спрашивают</span></h2>
+            <p class="section-sub center reveal" style="max-width:600px;">Ответы на главные вопросы перед записью</p>
             <div class="faq-list">
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>Это больно?</summary>
                     <div class="answer">Нет, процедура абсолютно комфортна. Вы чувствуете лишь приятное тепло и лёгкую вибрацию. Многие клиенты даже засыпают во время сеанса.</div>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>Сколько нужно сеансов для результата?</summary>
                     <div class="answer">Первые изменения видны уже после 3–5 сеансов. Для устойчивого результата рекомендуем курс из 10–15 процедур.</div>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>Что будет, если пропустить сеанс?</summary>
                     <div class="answer">Мы перенесём без штрафа, если вы предупредите за 24 часа. В день процедуры перенос невозможен.</div>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>А результат не исчезнет после курса?</summary>
                     <div class="answer">Мы даём рекомендации по питанию и образу жизни, чтобы вы сохранили результат надолго.</div>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>Можно ли купить курс в подарок?</summary>
                     <div class="answer">Да, у нас есть подарочные сертификаты на любой тариф. Отличный подарок для близких!</div>
                 </details>
-                <details class="faq-item">
+                <details class="faq-item reveal">
                     <summary>Есть ли противопоказания?</summary>
                     <div class="answer">Как и у любой процедуры, есть небольшие ограничения: беременность, онкология, острые воспаления. Подробнее расскажем на консультации.</div>
                 </details>
@@ -1050,28 +1645,30 @@
         </div>
     </section>
 
-    <!-- ===== СЕРТИФИКАТЫ ===== -->
+    <!-- ============================================================
+    СЕРТИФИКАТЫ
+    ============================================================ -->
     <section>
         <div class="container">
-            <h2 class="section-title">Подтверждённая <span>экспертиза</span></h2>
-            <p class="section-sub">Мы работаем на сертифицированном оборудовании и постоянно повышаем квалификацию</p>
+            <h2 class="section-title reveal">Подтверждённая <span>экспертиза</span></h2>
+            <p class="section-sub reveal">Мы работаем на сертифицированном оборудовании и постоянно повышаем квалификацию</p>
             <div class="grid-4">
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <span class="cert-icon">📜</span>
                     <h4>Сертификат LPG</h4>
                     <p>Подтверждение работы на аппаратах LPG</p>
                 </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <span class="cert-icon">📜</span>
                     <h4>Диплом нутрициолога</h4>
                     <p>Высшее образование в области питания</p>
                 </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <span class="cert-icon">📜</span>
                     <h4>Сертификат ультразвук</h4>
                     <p>Работа на ультразвуковых аппаратах</p>
                 </div>
-                <div class="cert-item">
+                <div class="cert-item reveal">
                     <span class="cert-icon">🏅</span>
                     <h4>Членство в ассоциации</h4>
                     <p>Профессиональное сообщество специалистов</p>
@@ -1080,31 +1677,165 @@
         </div>
     </section>
 
-    <!-- ===== ПРИЗЫВ (CTA) ===== -->
+    <!-- ============================================================
+    CTA (ПРИЗЫВ)
+    ============================================================ -->
     <section id="cta">
         <div class="container">
-            <div class="cta-block">
-                <h2>Запишитесь сейчас — получите <span style="color:#fff;">подарок</span></h2>
-                <p>Бесплатная консультация с нутрициологом в подарок. Осталось всего 4 места на эту неделю.</p>
+            <div class="cta-block reveal">
+                <h2>Запишитесь сейчас — получите <span>подарок</span></h2>
+                <p>Бесплатная консультация с нутрициологом в подарок. Осталось всего 4 места на этой неделе.</p>
                 <a href="https://wa.me/79999999999?text=Привет!%20Записываюсь%20на%20консультацию%20в%20МИНУСРАЗМЕР" class="btn-white">
                     📱 Получить подарок →
                 </a>
-                <p style="font-size:14px; opacity:0.75; margin-top:16px;">* Мы перезвоним в течение 15 минут</p>
+                <div class="cta-small">* Мы перезвоним в течение 15 минут</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ПЛАВАЮЩАЯ КНОПКА ===== -->
+    <!-- ============================================================
+    ПЛАВАЮЩАЯ КНОПКА
+    ============================================================ -->
     <a href="#cta" class="floating-btn">
-        📅 Записаться
+        <span>📅 Записаться</span>
     </a>
 
-    <!-- ===== ФУТЕР ===== -->
+    <!-- ============================================================
+    ФУТЕР
+    ============================================================ -->
     <footer class="footer container">
         <div>© 2026 МИНУСРАЗМЕР. Все права защищены.</div>
-        <div>Новосибирск, ул. Бориса Богаткова 248а, 6 этаж, пом. 605 | <a href="tel:+79999999999">+7 (999) 999-99-99</a></div>
-        <div style="color:var(--primary); font-weight:600;">Работаем по предварительной записи</div>
+        <div>
+            Новосибирск, ул. Бориса Богаткова 248а, 6 этаж, пом. 605 |
+            <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+        </div>
+        <div class="footer-social">
+            <span style="color:var(--text-gray);">Мы в соцсетях:</span>
+            <a href="#" title="Instagram">📸</a>
+            <a href="#" title="ВКонтакте">📘</a>
+            <a href="#" title="Telegram">📨</a>
+            <span style="color:var(--primary); font-weight:600;">Работаем по записи</span>
+        </div>
     </footer>
+
+    <!-- ============================================================
+    СКРИПТЫ
+    ============================================================ -->
+    <script>
+        // =============================================================
+        // 1. АНИМАЦИЯ ПОЯВЛЕНИЯ (SCROLL REVEAL)
+        // =============================================================
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // =============================================================
+        // 2. АНИМАЦИЯ СЧЁТЧИКОВ (COUNTER)
+        // =============================================================
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                if (isNaN(target)) return;
+                let current = 0;
+                const increment = target / 60;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                // Запускаем анимацию, если элемент виден
+                const rect = counter.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    updateCounter();
+                } else {
+                    // Сохраняем для запуска при скролле
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                updateCounter();
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(counter);
+                }
+            });
+        }
+
+        // Запускаем после загрузки
+        window.addEventListener('load', animateCounters);
+
+        // =============================================================
+        // 3. ШАПКА МЕНЯЕТ ПРОЗРАЧНОСТЬ ПРИ СКРОЛЛЕ
+        // =============================================================
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // =============================================================
+        // 4. КОПИРОВАНИЕ АДРЕСА
+        // =============================================================
+        function copyAddress() {
+            const address = 'ул. Бориса Богаткова, 248а, 6 этаж, помещение 605';
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅';
+                setTimeout(() => { btn.textContent = '📋'; }, 2000);
+            }).catch(() => {
+                alert('Скопируйте адрес вручную: ' + address);
+            });
+        }
+
+        // =============================================================
+        // 5. ПЛАВНАЯ ПРОКРУТКА К ЯКОРЯМ
+        // =============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // =============================================================
+        // 6. ПРЕДОТВРАЩАЕМ ОТКРЫТИЕ ССЫЛОК-ЗАГЛУШЕК В СОЦСЕТИ
+        // =============================================================
+        document.querySelectorAll('.footer-social a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert('Скоро здесь появится ссылка на нашу страницу!');
+                }
+            });
+        });
+
+        console.log('🚀 МИНУСРАЗМЕР — сайт загружен!');
+    </script>
 
 </body>
 </html>
