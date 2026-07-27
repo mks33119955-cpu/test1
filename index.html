@@ -6,7 +6,7 @@
     <title>Как нас найти — МИНУСРАЗМЕР Новосибирск</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
-        /* ===== БАЗА (как на твоём сайте) ===== */
+        /* ===== БАЗА ===== */
         * {
             margin: 0;
             padding: 0;
@@ -84,14 +84,7 @@
             font-size: 15px;
         }
 
-        /* ===== СЕТКА КАРТ ===== */
-        .maps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
+        /* ===== КАРТА ===== */
         .map-card {
             background: var(--white);
             border-radius: var(--radius);
@@ -99,10 +92,12 @@
             border: 1px solid rgba(10, 102, 194, 0.05);
             overflow: hidden;
             transition: all 0.3s ease;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .map-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             box-shadow: 0 12px 60px rgba(10, 102, 194, 0.14);
         }
 
@@ -132,25 +127,25 @@
         .map-card .map-header .btn-route {
             background: var(--gradient);
             color: #fff;
-            padding: 8px 20px;
+            padding: 10px 24px;
             border-radius: 40px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .map-card .map-header .btn-route:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.30);
+            box-shadow: 0 4px 24px rgba(10, 102, 194, 0.30);
         }
 
         .map-card .map-body {
             padding: 0;
-            height: 350px;
+            height: 400px;
             position: relative;
         }
 
@@ -187,45 +182,103 @@
             color: var(--accent);
         }
 
-        /* ===== АДАПТИВ ===== */
-        @media (max-width: 992px) {
-            .maps-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
-            }
+        /* ===== ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ===== */
+        .info-block {
+            margin-top: 32px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        @media (max-width: 768px) {
-            .maps-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+        .info-block h3 {
+            font-size: 20px;
+            color: #1A2A3A;
+        }
 
+        .info-block p {
+            color: var(--text-gray);
+            margin-top: 6px;
+        }
+
+        .info-block .tags {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .info-block .tags span {
+            background: var(--bg-light);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* ===== КНОПКА НАЗАД ===== */
+        .back-link {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .back-link a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+            display: inline-block;
+            padding: 12px 28px;
+            border: 2px solid var(--primary);
+            border-radius: 40px;
+        }
+
+        .back-link a:hover {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.20);
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 768px) {
             .page-header h1 {
                 font-size: 28px;
             }
-
             .page-header .address-block .addr {
                 font-size: 17px;
             }
-
             .map-card .map-body {
                 height: 280px;
             }
-
             .map-card .map-header {
                 flex-direction: column;
                 align-items: stretch;
                 text-align: center;
             }
-
             .map-card .map-header .btn-route {
                 justify-content: center;
             }
-
             .map-card .map-footer {
                 flex-direction: column;
                 text-align: center;
+            }
+            .info-block {
+                padding: 20px 16px;
+            }
+            .info-block .tags {
+                gap: 10px;
+            }
+            .info-block .tags span {
+                font-size: 12px;
+                padding: 4px 14px;
             }
         }
 
@@ -233,30 +286,24 @@
             body {
                 padding: 20px 12px;
             }
-
             .page-header h1 {
                 font-size: 22px;
             }
-
             .page-header .address-block {
                 padding: 12px 16px;
             }
-
             .page-header .address-block .addr {
                 font-size: 15px;
             }
-
             .map-card .map-body {
                 height: 220px;
             }
-
             .map-card .map-header h3 {
                 font-size: 16px;
             }
-
             .map-card .map-header .btn-route {
-                font-size: 12px;
-                padding: 6px 16px;
+                font-size: 13px;
+                padding: 8px 16px;
             }
         }
     </style>
@@ -265,100 +312,67 @@
 
     <div class="container">
 
-        <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+        <!-- ===== ЗАГОЛОВОК ===== -->
         <div class="page-header">
             <h1>Как нас <span>найти</span></h1>
-            <p>Выберите удобный для вас сервис для построения маршрута</p>
+            <p>Постройте удобный маршрут до нашего центра</p>
             <div class="address-block">
                 <div class="addr">📍 Новосибирск, ул. Бориса Богаткова, 248а, 6 этаж, пом. 605</div>
                 <div class="metro">🚇 Метро «Золотая Нива» — 167 метров пешком</div>
             </div>
         </div>
 
-        <!-- ===== ДВЕ КАРТЫ ===== -->
-        <div class="maps-grid">
-
-            <!-- === КАРТА 1: ЯНДЕКС === -->
-            <div class="map-card">
-                <div class="map-header">
-                    <h3>
-                        <span class="logo-icon">🗺️</span> Яндекс.Карты
-                    </h3>
-                    <a href="https://yandex.ru/maps/?rtext=~55.037134,82.978497&rtt=auto" target="_blank" class="btn-route">
-                        🚗 Проложить маршрут
-                    </a>
-                </div>
-                <div class="map-body">
-                    <iframe 
-                        src="https://yandex.ru/map-widget/v1/?ll=82.978497%2C55.037134&z=17&pt=82.978497%2C55.037134%2Cpm2rdl" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
-                </div>
-                <div class="map-footer">
-                    <span>Яндекс.Карты — навигация, пробки, общественный транспорт</span>
-                    <button class="copy-btn" onclick="copyAddress()">📋 Скопировать адрес</button>
-                </div>
+        <!-- ===== КАРТА: ЯНДЕКС ===== -->
+        <div class="map-card">
+            <div class="map-header">
+                <h3>
+                    <span class="logo-icon">🗺️</span> Яндекс.Карты
+                </h3>
+                <a href="https://yandex.ru/maps/?rtext=~55.037134,82.978497&rtt=auto" target="_blank" class="btn-route">
+                    🚗 Проложить маршрут
+                </a>
             </div>
-
-            <!-- === КАРТА 2: 2ГИС === -->
-            <div class="map-card">
-                <div class="map-header">
-                    <h3>
-                        <span class="logo-icon">📍</span> 2ГИС
-                    </h3>
-                    <a href="https://2gis.ru/novosibirsk/geo/70000001079667405?m=82.978497%2C55.037134%2F17" target="_blank" class="btn-route">
-                        🚗 Проложить маршрут
-                    </a>
-                </div>
-                <div class="map-body">
-                    <iframe 
-                        src="https://maps.2gis.com/widget?url=2gis.ru/novosibirsk/geo/70000001079667405/82.978497,55.037134?m=82.978497%2C55.037134%2F17&redir=1" 
-                        allowfullscreen 
-                        loading="lazy">
-                    </iframe>
-                </div>
-                <div class="map-footer">
-                    <span>2ГИС — детальные карты, организации, маршруты</span>
-                    <button class="copy-btn" onclick="copyAddress()">📋 Скопировать адрес</button>
-                </div>
+            <div class="map-body">
+                <iframe 
+                    src="https://yandex.ru/map-widget/v1/?ll=82.978497%2C55.037134&z=17&pt=82.978497%2C55.037134%2Cpm2rdl" 
+                    allowfullscreen 
+                    loading="lazy">
+                </iframe>
             </div>
-
+            <div class="map-footer">
+                <span>Яндекс.Карты — навигация, пробки, общественный транспорт</span>
+                <button class="copy-btn" onclick="copyAddress()">📋 Скопировать адрес</button>
+            </div>
         </div>
 
         <!-- ===== ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ===== -->
-        <div style="margin-top: 40px; background: var(--white); border-radius: var(--radius); padding: 28px 32px; box-shadow: var(--shadow); border: 1px solid rgba(10,102,194,0.05); text-align: center;">
-            <h3 style="font-size: 20px; color: #1A2A3A;">🚪 Как нас найти</h3>
-            <p style="color: var(--text-gray); margin-top: 6px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Вход со стороны улицы Бориса Богаткова. Домофон <strong>605</strong>. 
-                6-й этаж, помещение 605. Рядом остановка транспорта «ГПНТБ».
+        <div class="info-block">
+            <h3>🚪 Как нас найти</h3>
+            <p>
+                Вход со стороны улицы Бориса Богаткова. Домофон <strong>605</strong>.
+                6-й этаж, помещение 605.
             </p>
-            <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">🕐 Пн–Вс: 10:00–21:00</span>
-                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">📞 +7 (999) 999-99-99</span>
-                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">🅿️ Бесплатная парковка</span>
+            <div class="tags">
+                <span>🕐 Пн–Вс: 10:00–21:00</span>
+                <span>📞 <a href="tel:+79999999999" style="color: var(--primary); text-decoration: none;">+7 (999) 999-99-99</a></span>
+                <span>🅿️ Бесплатная парковка</span>
             </div>
         </div>
 
-        <!-- ===== КНОПКА НАЗАД НА ГЛАВНУЮ ===== -->
-        <div style="text-align: center; margin-top: 32px;">
-            <a href="/" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 16px; transition: 0.3s; display: inline-block; padding: 12px 28px; border: 2px solid var(--primary); border-radius: 40px;">
-                ← Вернуться на главную
-            </a>
+        <!-- ===== КНОПКА НАЗАД ===== -->
+        <div class="back-link">
+            <a href="/">← Вернуться на главную</a>
         </div>
 
     </div>
 
     <script>
-        // Копирование адреса в буфер обмена
         function copyAddress() {
             const address = 'Новосибирск, ул. Бориса Богаткова, 248а, 6 этаж, помещение 605';
             navigator.clipboard.writeText(address).then(() => {
-                const btns = document.querySelectorAll('.copy-btn');
-                btns.forEach(btn => {
-                    btn.textContent = '✅ Скопировано!';
-                    setTimeout(() => { btn.textContent = '📋 Скопировать адрес'; }, 2500);
-                });
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Скопировано!';
+                setTimeout(() => { btn.textContent = '📋 Скопировать адрес'; }, 2500);
             }).catch(() => {
                 alert('Скопируйте адрес вручную: ' + address);
             });
