@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>МИНУСРАЗМЕР Новосибирск — Аппаратная коррекция + Диетология</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== БАЗА ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F5F9FF;
+            color: #1A2A3A;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ЦВЕТА ===== */
+        :root {
+            --primary: #0A66C2;
+            --primary-light: #1A86E8;
+            --primary-dark: #0A4A8A;
+            --secondary: #4A9FE0;
+            --accent: #00B4D8;
+            --gradient: linear-gradient(135deg, #0A66C2, #00B4D8);
+            --bg-light: #EEF5FF;
+            --text-dark: #1A2A3A;
+            --text-gray: #5A6A7A;
+            --white: #FFFFFF;
+            --shadow: 0 8px 40px rgba(10, 102, 194, 0.10);
+            --shadow-hover: 0 12px 60px rgba(10, 102, 194, 0.18);
+            --radius: 20px;
+        }
+
+        /* ===== ШАПКА ===== */
+        .header {
+            background: var(--white);
+            padding: 16px 0;
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon svg {
+            height: 48px;
+            width: auto;
+        }
+        .logo-text {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+        }
+        .logo-text span {
+            color: var(--primary);
+        }
+        .logo-sub {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-gray);
+            border-left: 2px solid #D0DDE8;
+            padding-left: 16px;
+        }
+        .header-phone {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--primary);
+            text-decoration: none;
+            background: var(--bg-light);
+            padding: 10px 24px;
+            border-radius: 40px;
+            transition: 0.3s;
+            border: 1px solid rgba(10, 102, 194, 0.12);
+        }
+        .header-phone:hover {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.30);
+        }
+
+        /* ===== ГЕРОЙ ===== */
+        .hero {
+            padding: 70px 0 80px;
+            background: var(--bg-light);
+            border-bottom: 1px solid rgba(10, 102, 194, 0.05);
+        }
+        .hero .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+        .hero-content {
+            flex: 1 1 500px;
+        }
+        .hero-tag {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: rgba(10, 102, 194, 0.08);
+            padding: 6px 18px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        .hero h1 .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 19px;
+            color: var(--text-gray);
+            max-width: 480px;
+            margin-bottom: 28px;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 36px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .hero-stats div {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+        .hero-stats strong {
+            display: block;
+            font-size: 30px;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            padding: 16px 44px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 30px rgba(10, 102, 194, 0.28);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 50px rgba(10, 102, 194, 0.38);
+        }
+        .btn-wa {
+            background: #25D366;
+            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.28);
+            margin-right: 12px;
+        }
+        .btn-wa:hover {
+            background: #20b85a;
+            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.38);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            padding: 14px 36px;
+            border: 2px solid var(--primary);
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .hero-image {
+            flex: 1 1 400px;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+        }
+        .hero-image .icon-big {
+            display: block;
+            margin-bottom: 12px;
+        }
+        .hero-image h3 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 22px;
+        }
+        .hero-image p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+        .hero-image .badge-blue {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 12px 0;
+        }
+        .hero-image .bottom-text {
+            background: var(--bg-light);
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-top: 16px;
+        }
+
+        /* ===== СЕКЦИИ ===== */
+        section {
+            padding: 70px 0;
+        }
+        .section-title {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-sub {
+            color: var(--text-gray);
+            font-size: 18px;
+            margin-bottom: 48px;
+            max-width: 620px;
+        }
+        .section-sub.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 32px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        .card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+        .card .badge {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--primary);
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+
+        /* ===== БЛОК "ЦИФРЫ" ===== */
+        .stats-block {
+            background: var(--gradient);
+            border-radius: var(--radius);
+            padding: 50px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 30px;
+            text-align: center;
+            color: #fff;
+        }
+        .stats-block .stat-item .number {
+            font-size: 44px;
+            font-weight: 900;
+            display: block;
+            line-height: 1.1;
+        }
+        .stats-block .stat-item .label {
+            font-size: 16px;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+
+        /* ===== ШАГИ ===== */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            counter-reset: step;
+        }
+        .step-item {
+            background: var(--white);
+            padding: 30px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            counter-increment: step;
+        }
+        .step-item::before {
+            content: counter(step);
+            font-size: 40px;
+            font-weight: 900;
+            color: var(--primary);
+            opacity: 0.12;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .step-item .step-icon {
+            font-size: 34px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .step-item h4 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        .step-item p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* ===== ТАРИФЫ ===== */
+        .tariffs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+            margin-top: 10px;
+        }
+        .tariff-card {
+            background: var(--white);
+            padding: 34px 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            text-align: center;
+            transition: 0.3s;
+            position: relative;
+        }
+        .tariff-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .tariff-card.best {
+            border: 2px solid var(--primary);
+        }
+        .tariff-card.best::before {
+            content: "🔥 Самый популярный";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: #fff;
+            padding: 4px 20px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .tariff-card .tariff-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .tariff-card .tariff-price {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 12px 0;
+        }
+        .tariff-card .tariff-price small {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+        .tariff-card ul {
+            list-style: none;
+            text-align: left;
+            margin: 16px 0 24px;
+            padding: 0;
+        }
+        .tariff-card ul li {
+            padding: 6px 0;
+            font-size: 15px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .tariff-card ul li::before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        /* ===== КЕЙСЫ ===== */
+        .case-item {
+            background: var(--white);
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            transition: 0.3s;
+        }
+        .case-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .case-item .case-result {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        .case-item .case-desc {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin: 6px 0 10px;
+        }
+        .case-item .case-quote {
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 15px;
+            background: var(--bg-light);
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+
+        /* ===== КАРТА ===== */
+        .map-block {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            border: 1px solid rgba(10, 102, 194, 0.05);
+        }
+        .map-block .info {
+            flex: 1;
+            min-width: 200px;
+        }
+        .map-block .info h3 {
+            font-size: 26px;
+            color: var(--text-dark);
+        }
+        .map-block .info .address {
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 8px 0;
+        }
+        .map-block .info .metro {
+            color: var(--text-gray);
+        }
+        .map-block iframe {
+            flex: 2;
+            min-width: 280px;
+            height: 260px;
+            border: 0;
+            border-radius: 14px;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            padding: 20px 28px;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--text-dark);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary::after {
+            content: "+";
+            font-size: 26px;
+            color: var(--primary);
+            font-weight: 300;
+        }
+        .faq-item[open] summary::after {
+            content: "−";
+        }
+        .faq-item .answer {
+            padding: 0 28px 24px;
+            color: var(--text-gray);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ===== СЕРТИФИКАТЫ ===== */
+        .cert-item {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            transition: 0.3s;
+        }
+        .cert-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .cert-item .cert-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .cert-item h4 {
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+        .cert-item p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* ===== CTA ===== */
+        .cta-block {
+            background: var(--gradient);
+            border-radius: var(--radius);
+            padding: 50px 40px;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-block h2 {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .cta-block p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 28px;
+        }
+        .cta-block .btn-white {
+            background: #fff;
+            color: var(--primary);
+            padding: 16px 48px;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .cta-block .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== ПЛАВАЮЩАЯ КНОПКА ===== */
+        .floating-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--gradient);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 4px 30px rgba(10, 102, 194, 0.35);
+            text-decoration: none;
+            z-index: 200;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .floating-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 50px rgba(10, 102, 194, 0.45);
+        }
+
+        /* ===== ФУТЕР ===== */
+        .footer {
+            background: var(--white);
+            border-top: 1px solid rgba(10, 102, 194, 0.05);
+            padding: 32px 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: var(--text-gray);
+            font-size: 14px;
+            gap: 12px;
+        }
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+            .hero-stats {
+                gap: 18px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+            .header .container {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .logo {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .logo-sub {
+                border-left: none;
+                padding-left: 0;
+            }
+            .cta-block {
+                padding: 30px 20px;
+            }
+            .cta-block h2 {
+                font-size: 26px;
+            }
+            .tariff-card.best::before {
+                font-size: 10px;
+                padding: 2px 14px;
+                top: -10px;
+                white-space: nowrap;
+            }
+            .floating-btn {
+                padding: 12px 20px;
+                font-size: 13px;
+                bottom: 16px;
+                right: 16px;
+            }
+            .stats-block {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .stats-block .stat-item .number {
+                font-size: 32px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            .btn-primary {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+            .btn-wa {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .hero-image {
+                padding: 24px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <!-- ИКОНКА-ФИГУРА (без текста, чистая фигура с линией коррекции) -->
+                    <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="22" r="10" stroke="#0A66C2" stroke-width="3"/>
+                        <line x1="50" y1="32" x2="50" y2="40" stroke="#0A66C2" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M38 40 L62 40 L62 46 Q62 70 50 78 Q38 70 38 46 V40" stroke="#0A66C2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M42 78 L38 94" stroke="#0A66C2" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M58 78 L62 94" stroke="#0A66C2" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M38 46 L32 64 L36 68" stroke="#0A66C2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M62 46 L70 28 L66 24" stroke="#0A66C2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Линия коррекции (голубая дуга + минус) -->
+                        <path d="M68 56 Q76 68 68 84" stroke="#00B4D8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                        <line x1="65" y1="90" x2="78" y2="90" stroke="#00B4D8" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">МИНУС<span>РАЗМЕР</span></span>
+                </div>
+                <div class="logo-sub">Аппаратная коррекция + Диетология</div>
+            </div>
+            <a href="tel:+79999999999" class="header-phone">📞 +7 (999) 999-99-99</a>
+        </div>
+    </header>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">⚡ Инновационная физика тела</div>
+                <h1>
+                    Верни себе тело<br />
+                    <span class="highlight">без диет и изнурений</span>
+                </h1>
+                <p>Аппаратная коррекция фигуры + персональный план питания. Ваше тело — это машина, мы просто настроим её.</p>
+                <div class="hero-stats">
+                    <div><strong>−15 см</strong> в объёме за 10 сеансов</div>
+                    <div><strong>94%</strong> эффективность</div>
+                    <div><strong>127+</strong> довольных клиентов</div>
+                </div>
+                <div>
+                    <a href="https://wa.me/79999999999?text=Привет!%20Записываюсь%20на%20консультацию%20в%20МИНУСРАЗМЕР" class="btn-primary btn-wa">📱 Записаться на консультацию</a>
+                    <a href="#tariffs" class="btn-primary" style="margin-top:12px;">⬇ Выбрать курс</a>
+                </div>
+                <p style="font-size:14px; color:var(--text-gray); margin-top:16px;">* Консультация бесплатна. Осталось 4 места на этой неделе.</p>
+            </div>
+            <div class="hero-image">
+                <span class="icon-big">⚙️</span>
+                <h3>Аппараты нового поколения</h3>
+                <p>LPG / Ультразвук / Миостимуляция</p>
+                <div class="badge-blue">+ Индивидуальный план питания</div>
+                <div class="bottom-text">«МИНУСРАЗМЕР» — это не массаж, это перезагрузка тела.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ЦИФРЫ ===== -->
+    <section style="padding-top:0;">
+        <div class="container">
+            <div class="stats-block">
+                <div class="stat-item">
+                    <span class="number">127+</span>
+                    <span class="label">клиентов уже с нами</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">−12 см</span>
+                    <span class="label">средний результат</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">94%</span>
+                    <span class="label">достигают результата</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">3 года</span>
+                    <span class="label">успешной работы</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПРЕИМУЩЕСТВА ===== -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Технология <span>коррекции</span></h2>
+            <p class="section-sub">Мы сочетаем передовые аппараты и персонализированный подход. Каждый сеанс просчитан до сантиметра.</p>
+            <div class="grid-2">
+                <div class="card">
+                    <span class="card-icon">🔬</span>
+                    <h3>Аппаратное моделирование без боли</h3>
+                    <p>Разбивает фиброзные отложения, убирает «апельсиновую корку» и моделирует контуры тела.</p>
+                    <span class="badge">Без боли</span>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🥗</span>
+                    <h3>Питание, которое вы полюбите</h3>
+                    <p>Не просто «не есть», а есть правильные продукты в нужное время. Мы даём формулу, а не меню.</p>
+                    <span class="badge">Персонально</span>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📏</span>
+                    <h3>Гарантия результата — или бесплатно</h3>
+                    <p>Если результат не будет достигнут, мы продолжаем работать бесплатно. Это закреплено в договоре.</p>
+                    <span class="badge">Честно</span>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🧠</span>
+                    <h3>Персональный разбор за 15 минут</h3>
+                    <p>Разбираем ваш образ жизни, питание и ставим цели. Строим индивидуальный план коррекции.</p>
+                    <span class="badge">Экспертно</span>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📍</span>
+                    <h3>Удобное расположение</h3>
+                    <p>3 минуты от метро «Золотая Нива». Бесплатная парковка у входа.</p>
+                    <span class="badge">Рядом</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== КАК МЫ РАБОТАЕМ ===== -->
+    <section style="background: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Как мы <span>работаем</span></h2>
+            <p class="section-sub">4 простых шага к вашему новому телу. Первые изменения уже после 3-го сеанса.</p>
+            <div class="steps">
+                <div class="step-item">
+                    <span class="step-icon">🤝</span>
+                    <h4>Знакомство и разбор целей</h4>
+                    <p>Приходите на консультацию, обсуждаем ваши цели и проблемные зоны</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-icon">⚙️</span>
+                    <h4>Начинаем менять тело с первого сеанса</h4>
+                    <p>10–15 сеансов по индивидуальному протоколу</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-icon">🥗</span>
+                    <h4>Едите вкусно и худеете</h4>
+                    <p>Получаете план питания, который не вызывает стресса</p>
+                </div>
+                <div class="step-item">
+                    <span class="step-icon">🎯</span>
+                    <h4>Замеры подтверждают: вы минус размер</h4>
+                    <p>Фиксируем результат и закрепляем его</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ТАРИФЫ ===== -->
+    <section id="tariffs">
+        <div class="container">
+            <h2 class="section-title">Выберите <span>свой курс</span></h2>
+            <p class="section-sub">Подберите программу, которая подходит именно вам</p>
+            <div class="tariffs">
+                <div class="tariff-card">
+                    <div class="tariff-name">🚀 Экспресс</div>
+                    <div class="tariff-price">8 900 <small>₽</small></div>
+                    <ul>
+                        <
