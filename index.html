@@ -1,927 +1,369 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МИНУСРАЗМЕР Новосибирск — Аппаратная коррекция фигуры и диетология</title>
-    <meta name="description" content="Аппаратная коррекция фигуры и персональный план питания в Новосибирске. Гарантия результата −5 см за 10 сеансов. Метро Золотая Нива.">
-    <meta name="keywords" content="коррекция фигуры новосибирск, lpg массаж, диетолог новосибирск, минус размер, убрать живот">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="МИНУСРАЗМЕР — Аппаратная коррекция фигуры">
-    <meta property="og:description" content="Минус 5 см за 10 сеансов. Гарантия результата по договору.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="logo.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Как нас найти — МИНУСРАЗМЕР Новосибирск</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
     <style>
+        /* ===== БАЗА (как на твоём сайте) ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #4A90E2;
-            --primary-light: #7BB3E8;
-            --primary-dark: #2E5C8A;
-            --secondary: #5BA3D0;
-            --accent: #00B4D8;
-            --gradient: linear-gradient(135deg, #4A90E2 0%, #00B4D8 100%);
-            --bg-light: #F0F6FF;
-            --text-dark: #1A2A3A;
-            --text-gray: #5A6A7A;
-            --white: #FFFFFF;
-            --shadow: 0 8px 40px rgba(74, 144, 226, 0.12);
-            --shadow-hover: 0 12px 60px rgba(74, 144, 226, 0.20);
-            --radius: 20px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background: #F8FAFE;
-            color: var(--text-dark);
+            background: #F5F9FF;
+            color: #1A2A3A;
             line-height: 1.6;
-            overflow-x: hidden;
+            padding: 40px 20px;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
         }
 
-        /* ===== ШАПКА ===== */
-        .header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 16px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        :root {
+            --primary: #0A66C2;
+            --primary-light: #1A86E8;
+            --accent: #00B4D8;
+            --gradient: linear-gradient(135deg, #0A66C2, #00B4D8);
+            --bg-light: #EEF5FF;
+            --text-gray: #5A6A7A;
+            --white: #FFFFFF;
+            --shadow: 0 8px 40px rgba(10, 102, 194, 0.08);
+            --radius: 20px;
         }
 
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .header-phone {
-            font-weight: 700;
-            font-size: 18px;
-            color: var(--primary);
-            text-decoration: none;
-            background: var(--bg-light);
-            padding: 10px 24px;
-            border-radius: 40px;
-            transition: 0.3s;
-            border: 1px solid rgba(74, 144, 226, 0.15);
-        }
-
-        .header-phone:hover {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.3);
-        }
-
-        /* ===== ГЕРОЙ ===== */
-        .hero {
-            padding: 60px 0 70px;
-            background: var(--bg-light);
-            border-bottom: 1px solid rgba(74, 144, 226, 0.06);
-        }
-
-        .hero .container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero-content {
-            flex: 1 1 500px;
-        }
-
-        .hero-tag {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            background: rgba(74, 144, 226, 0.08);
-            padding: 6px 18px;
-            border-radius: 40px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .hero h1 .highlight {
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 19px;
-            color: var(--text-gray);
-            max-width: 480px;
-            margin-bottom: 30px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
-
-        .hero-stats div {
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        .hero-stats strong {
-            display: block;
-            font-size: 28px;
-            color: var(--text-dark);
-            font-weight: 800;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            padding: 16px 48px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 30px rgba(74, 144, 226, 0.3);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 50px rgba(74, 144, 226, 0.4);
-        }
-
-        .btn-wa {
-            background: #25D366;
-            box-shadow: 0 4px 30px rgba(37, 211, 102, 0.3);
-            margin-right: 12px;
-        }
-
-        .btn-wa:hover {
-            background: #20b85a;
-            box-shadow: 0 8px 40px rgba(37, 211, 102, 0.4);
-        }
-
-        .hero-image {
-            flex: 1 1 400px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-radius: var(--radius);
-            padding: 40px 30px;
+        /* ===== ЗАГОЛОВОК СТРАНИЦЫ ===== */
+        .page-header {
             text-align: center;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
         }
 
-        .hero-image .icon-big {
-            font-size: 80px;
-            display: block;
-            margin-bottom: 16px;
-        }
-
-        .hero-image h3 {
-            color: var(--primary-dark);
-            font-weight: 700;
-            font-size: 22px;
-        }
-
-        .hero-image p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-
-        .hero-image .badge-blue {
-            display: inline-block;
-            background: var(--bg-light);
-            color: var(--primary);
-            padding: 6px 20px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 14px;
-            margin: 12px 0;
-        }
-
-        .hero-image .bottom-text {
-            background: var(--bg-light);
-            padding: 14px 20px;
-            border-radius: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-top: 16px;
-        }
-
-        /* ===== СЕКЦИИ ===== */
-        section {
-            padding: 70px 0;
-        }
-
-        .section-title {
+        .page-header h1 {
             font-size: 38px;
             font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text-dark);
+            color: #1A2A3A;
         }
 
-        .section-title span {
+        .page-header h1 span {
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .section-sub {
+        .page-header p {
             color: var(--text-gray);
             font-size: 18px;
-            margin-bottom: 48px;
-            max-width: 600px;
+            margin-top: 6px;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 32px 28px;
+        .page-header .address-block {
+            background: var(--white);
+            padding: 16px 24px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card-icon {
-            font-size: 40px;
-            margin-bottom: 14px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-            color: var(--text-dark);
-        }
-
-        .card p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-
-        .card .badge {
             display: inline-block;
-            background: var(--bg-light);
-            color: var(--primary);
-            padding: 4px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 16px;
-        }
-
-        /* ===== ШАГИ ===== */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            counter-reset: step;
-        }
-
-        .step-item {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 30px 24px;
-            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            counter-increment: step;
+            margin-top: 12px;
+            border: 1px solid rgba(10, 102, 194, 0.06);
         }
 
-        .step-item::before {
-            content: counter(step);
-            font-size: 40px;
-            font-weight: 900;
-            color: var(--primary);
-            opacity: 0.15;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .step-item .step-icon {
-            font-size: 36px;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .step-item h4 {
-            font-size: 18px;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-        }
-
-        .step-item p {
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-
-        /* ===== ТАРИФЫ ===== */
-        .tariffs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 28px;
-            margin-top: 10px;
-        }
-
-        .tariff-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            padding: 34px 28px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .tariff-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .tariff-card.best {
-            border: 2px solid var(--primary);
-            position: relative;
-        }
-
-        .tariff-card.best::before {
-            content: "🔥 Самый популярный";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient);
-            color: #fff;
-            padding: 4px 20px;
-            border-radius: 40px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .tariff-card .tariff-name {
+        .page-header .address-block .addr {
             font-size: 20px;
             font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .tariff-card .tariff-price {
-            font-size: 36px;
-            font-weight: 900;
             color: var(--primary);
-            margin: 12px 0;
         }
 
-        .tariff-card .tariff-price small {
-            font-size: 16px;
-            font-weight: 400;
+        .page-header .address-block .metro {
             color: var(--text-gray);
-        }
-
-        .tariff-card ul {
-            list-style: none;
-            text-align: left;
-            margin: 16px 0 24px;
-            padding: 0;
-        }
-
-        .tariff-card ul li {
-            padding: 6px 0;
             font-size: 15px;
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .tariff-card ul li::before {
-            content: "✓";
-            color: var(--primary);
-            font-weight: 900;
-            font-size: 18px;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            padding: 12px 36px;
-            border: 2px solid var(--primary);
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 15px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* ===== FAQ ===== */
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            overflow: hidden;
-        }
-
-        .faq-item summary {
-            padding: 20px 28px;
-            font-weight: 700;
-            font-size: 17px;
-            color: var(--text-dark);
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-item summary::after {
-            content: "+";
-            font-size: 26px;
-            color: var(--primary);
-            font-weight: 300;
-        }
-
-        .faq-item[open] summary::after {
-            content: "−";
-        }
-
-        .faq-item .answer {
-            padding: 0 28px 24px;
-            color: var(--text-gray);
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        /* ===== КАРТА ===== */
-        .map-block {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-wrap: wrap;
+        /* ===== СЕТКА КАРТ ===== */
+        .maps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .map-block .info {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .map-block .info h3 {
-            font-size: 26px;
-            color: var(--text-dark);
-        }
-
-        .map-block .info .address {
-            color: var(--primary);
-            font-size: 18px;
-            font-weight: 600;
-            margin: 8px 0;
-        }
-
-        .map-block .info .metro {
-            color: var(--text-gray);
-        }
-
-        .map-block iframe {
-            flex: 2;
-            min-width: 280px;
-            height: 260px;
-            border: 0;
-            border-radius: 14px;
-        }
-
-        /* ===== CTA ===== */
-        .cta-block {
-            background: var(--gradient);
-            border-radius: var(--radius);
-            padding: 50px 40px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .cta-block h2 {
-            font-size: 34px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .cta-block p {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-bottom: 28px;
-        }
-
-        .cta-block .btn-white {
-            background: #fff;
-            color: var(--primary);
-            padding: 16px 48px;
-            font-weight: 700;
-            font-size: 16px;
-            border: none;
-            border-radius: 60px;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .cta-block .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-        }
-
-        /* ===== ФУТЕР ===== */
-        .footer {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(8px);
-            border-top: 1px solid rgba(74, 144, 226, 0.06);
-            padding: 32px 0;
             margin-top: 20px;
+        }
+
+        .map-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(10, 102, 194, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .map-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 60px rgba(10, 102, 194, 0.14);
+        }
+
+        .map-card .map-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid rgba(10, 102, 194, 0.06);
             display: flex;
+            align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            color: var(--text-gray);
-            font-size: 14px;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* ===== FLOATING BUTTON ===== */
-        .floating-cta {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #25D366;
-            color: white;
-            padding: 14px 24px;
-            border-radius: 50px;
+        .map-card .map-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A2A3A;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 700;
-            font-size: 16px;
-            text-decoration: none;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .floating-cta:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+        .map-card .map-header h3 .logo-icon {
+            font-size: 24px;
+        }
+
+        .map-card .map-header .btn-route {
+            background: var(--gradient);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-card .map-header .btn-route:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.30);
+        }
+
+        .map-card .map-body {
+            padding: 0;
+            height: 350px;
+            position: relative;
+        }
+
+        .map-card .map-body iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .map-card .map-footer {
+            padding: 14px 24px;
+            background: #FAFCFE;
+            font-size: 14px;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(10, 102, 194, 0.04);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .map-card .map-footer .copy-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .map-card .map-footer .copy-btn:hover {
+            color: var(--accent);
         }
 
         /* ===== АДАПТИВ ===== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 34px;
-            }
-            .hero-stats {
+        @media (max-width: 992px) {
+            .maps-grid {
+                grid-template-columns: 1fr 1fr;
                 gap: 20px;
             }
-            .section-title {
-                font-size: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .maps-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
-            .header .container {
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .page-header .address-block .addr {
+                font-size: 17px;
+            }
+
+            .map-card .map-body {
+                height: 280px;
+            }
+
+            .map-card .map-header {
                 flex-direction: column;
                 align-items: stretch;
                 text-align: center;
             }
-            .logo {
+
+            .map-card .map-header .btn-route {
                 justify-content: center;
             }
-            .cta-block {
-                padding: 30px 20px;
+
+            .map-card .map-footer {
+                flex-direction: column;
+                text-align: center;
             }
-            .cta-block h2 {
-                font-size: 26px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
             }
-            .tariff-card.best::before {
-                font-size: 10px;
-                padding: 2px 14px;
-                top: -10px;
+
+            .page-header h1 {
+                font-size: 22px;
+            }
+
+            .page-header .address-block {
+                padding: 12px 16px;
+            }
+
+            .page-header .address-block .addr {
+                font-size: 15px;
+            }
+
+            .map-card .map-body {
+                height: 220px;
+            }
+
+            .map-card .map-header h3 {
+                font-size: 16px;
+            }
+
+            .map-card .map-header .btn-route {
+                font-size: 12px;
+                padding: 6px 16px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- ===== ШАПКА ===== -->
-<header class="header">
     <div class="container">
-        <div class="logo">
-            <img src="logo.png" alt="МИНУСРАЗМЕР — Аппаратная коррекция фигуры">
-        </div>
-        <a href="tel:+79999999999" class="header-phone"> +7 (999) 999-99-99</a>
-    </div>
-</header>
 
-<!-- ===== ГЕРОЙ ===== -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-tag">⚡ Инновационная физика тела</div>
-            <h1>
-                Верни себе тело<br>
-                <span class="highlight">без диет и изнурений</span>
-            </h1>
-            <p>Аппаратная коррекция фигуры + персональный план питания. Ваше тело — это машина, мы просто настроим её.</p>
-            <div class="hero-stats">
-                <div><strong>−15 см</strong> в объёме за 10 сеансов</div>
-                <div><strong>94%</strong> эффективность</div>
-                <div><strong>127+</strong> довольных клиентов</div>
-            </div>
-            <div>
-                <a href="#cta" class="btn-primary btn-wa">📱 Записаться на консультацию</a>
-                <a href="#tariffs" class="btn-primary" style="margin-top:12px;"> Выбрать курс</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <span class="icon-big">⚙️</span>
-            <h3>Аппараты нового поколения</h3>
-            <p>LPG / Ультразвук / Миостимуляция</p>
-            <div class="badge-blue">+ Индивидуальный план питания</div>
-            <div class="bottom-text">
-                «МИНУСРАЗМЕР» — это не массаж, это перезагрузка тела.
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== ПРЕИМУЩЕСТВА ===== -->
-<section>
-    <div class="container">
-        <h2 class="section-title">Технология <span>коррекции</span></h2>
-        <p class="section-sub">Мы сочетаем передовые аппараты и персонализированный подход. Каждый сеанс просчитан до сантиметра.</p>
-        <div class="grid-2">
-            <div class="card">
-                <span class="card-icon">🔬</span>
-                <h3>Аппаратное моделирование фигуры</h3>
-                <p>Разбивает фиброзные отложения, убирает «апельсиновую корку» и моделирует контуры тела.</p>
-                <span class="badge">Без боли</span>
-            </div>
-            <div class="card">
-                <span class="card-icon">🥗</span>
-                <h3>Индивидуальный план питания</h3>
-                <p>Не просто «не есть», а есть правильные продукты в нужное время. Мы даём формулу, а не меню.</p>
-                <span class="badge">Персонально</span>
-            </div>
-            <div class="card">
-                <span class="card-icon">📏</span>
-                <h3>Гарантия −5 см за 10 сеансов</h3>
-                <p>Если результат не будет достигнут, мы продолжаем работать бесплатно. Это закреплено в договоре.</p>
-                <span class="badge">Честно</span>
-            </div>
-            <div class="card">
-                <span class="card-icon">📊</span>
-                <h3>15-минутная консультация</h3>
-                <p>Разбираем ваш образ жизни, питание и ставим цели. Строим индивидуальный план коррекции.</p>
-                <span class="badge">Экспертно</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== КАК МЫ РАБОТАЕМ ===== -->
-<section style="background: var(--bg-light);">
-    <div class="container">
-        <h2 class="section-title">Как мы <span>работаем</span></h2>
-        <p class="section-sub">4 простых шага к вашему новому телу</p>
-        <div class="steps">
-            <div class="step-item">
-                <span class="step-icon">🤝</span>
-                <h4>Вы приходите на консультацию</h4>
-                <p>Обсуждаем ваши цели и проблемные зоны</p>
-            </div>
-            <div class="step-item">
-                <span class="step-icon">⚙️</span>
-                <h4>Проходите аппаратную коррекцию</h4>
-                <p>10–15 сеансов по индивидуальному протоколу</p>
-            </div>
-            <div class="step-item">
-                <span class="step-icon">🥗</span>
-                <h4>Получаете план питания</h4>
-                <p>Ежедневные рекомендации от нутрициолога</p>
-            </div>
-            <div class="step-item">
-                <span class="step-icon">🎯</span>
-                <h4>Видите результат</h4>
-                <p>Замеры до/после и фиксация достижений</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== ТАРИФЫ ===== -->
-<section id="tariffs">
-    <div class="container">
-        <h2 class="section-title">Выберите <span>свой курс</span></h2>
-        <p class="section-sub">Подберите программу, которая подходит именно вам</p>
-        <div class="tariffs">
-            <div class="tariff-card">
-                <div class="tariff-name"> Экспресс</div>
-                <div class="tariff-price">8 900 ₽</div>
-                <ul>
-                    <li>5 сеансов аппаратной коррекции</li>
-                    <li>Базовые рекомендации по питанию</li>
-                    <li>Замеры до/после</li>
-                </ul>
-                <a href="#cta" class="btn-outline">Выбрать</a>
-            </div>
-            <div class="tariff-card best">
-                <div class="tariff-name">🔥 Трансформация</div>
-                <div class="tariff-price">16 900 ₽</div>
-                <ul>
-                    <li>10 сеансов аппаратной коррекции</li>
-                    <li>Полный план питания на месяц</li>
-                    <li>Контроль результатов каждые 3 сеанса</li>
-                    <li>Гарантия −5 см</li>
-                </ul>
-                <a href="#cta" class="btn-primary" style="padding: 12px 40px;">Выбрать</a>
-            </div>
-            <div class="tariff-card">
-                <div class="tariff-name">👑 VIP-Перезагрузка</div>
-                <div class="tariff-price">25 900 ₽</div>
-                <ul>
-                    <li>15 сеансов аппаратной коррекции</li>
-                    <li>Полный план питания на месяц</li>
-                    <li>Нутрициолог на связи 24/7</li>
-                    <li>Персональный протокол под ваш тип</li>
-                    <li>Гарантия −7 см</li>
-                </ul>
-                <a href="#cta" class="btn-outline">Выбрать</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== КАРТА ===== -->
-<section style="background: var(--bg-light);">
-    <div class="container">
-        <h2 class="section-title">Мы <span>в Новосибирске</span></h2>
-        <p class="section-sub">Добирайтесь с комфортом — мы рядом с метро</p>
-        <div class="map-block">
-            <div class="info">
-                <h3> Наш адрес</h3>
-                <div class="address">ул. Бориса Богаткова, 248а, 6 этаж, помещение 605</div>
+        <!-- ===== ЗАГОЛОВОК СТРАНИЦЫ ===== -->
+        <div class="page-header">
+            <h1>Как нас <span>найти</span></h1>
+            <p>Выберите удобный для вас сервис для построения маршрута</p>
+            <div class="address-block">
+                <div class="addr">📍 Новосибирск, ул. Бориса Богаткова, 248а, 6 этаж, пом. 605</div>
                 <div class="metro">🚇 Метро «Золотая Нива» — 167 метров пешком</div>
-                <p style="margin: 14px 0; color: var(--text-gray);">
-                    <strong>Режим работы:</strong> Пн–Вс: 10:00 – 21:00
-                </p>
-                <a href="https://yandex.ru/maps/?rtext=~55.037134,82.978497&rtt=auto" target="_blank" class="btn-outline" style="padding: 10px 28px; font-size: 14px;">
-                    🚗 Построить маршрут
-                </a>
             </div>
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=82.978497%2C55.037134&z=17&pt=82.978497%2C55.037134%2Cpm2rdl" allowfullscreen loading="lazy"></iframe>
         </div>
-    </div>
-</section>
 
-<!-- ===== FAQ ===== -->
-<section>
-    <div class="container">
-        <h2 class="section-title">Часто <span>спрашивают</span></h2>
-        <p class="section-sub">Ответы на главные вопросы перед записью</p>
-        <div class="faq-list">
-            <details class="faq-item">
-                <summary>Это больно?</summary>
-                <div class="answer">Нет, процедура абсолютно комфортна. Вы чувствуете лишь приятное тепло и лёгкую вибрацию. Многие клиенты даже засыпают во время сеанса.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Сколько нужно сеансов для результата?</summary>
-                <div class="answer">Первые изменения видны уже после 3-5 сеансов. Для устойчивого результата рекомендуем курс из 10–15 процедур. Индивидуальный протокол мы составляем на первой консультации.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Можно ли совмещать с другими процедурами?</summary>
-                <div class="answer">Да, аппаратная коррекция отлично сочетается с любыми оздоровительными процедурами. Главное — соблюдать рекомендации нашего специалиста.</div>
-            </details>
-            <details class="faq-item">
-                <summary>Есть ли противопоказания?</summary>
-                <div class="answer">Как и у любой процедуры, есть небольшие ограничения: беременность, онкология, острые воспаления. Подробнее расскажем на консультации.</div>
-            </details>
+        <!-- ===== ДВЕ КАРТЫ ===== -->
+        <div class="maps-grid">
+
+            <!-- === КАРТА 1: ЯНДЕКС === -->
+            <div class="map-card">
+                <div class="map-header">
+                    <h3>
+                        <span class="logo-icon">🗺️</span> Яндекс.Карты
+                    </h3>
+                    <a href="https://yandex.ru/maps/?rtext=~55.037134,82.978497&rtt=auto" target="_blank" class="btn-route">
+                        🚗 Проложить маршрут
+                    </a>
+                </div>
+                <div class="map-body">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/?ll=82.978497%2C55.037134&z=17&pt=82.978497%2C55.037134%2Cpm2rdl" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="map-footer">
+                    <span>Яндекс.Карты — навигация, пробки, общественный транспорт</span>
+                    <button class="copy-btn" onclick="copyAddress()">📋 Скопировать адрес</button>
+                </div>
+            </div>
+
+            <!-- === КАРТА 2: 2ГИС === -->
+            <div class="map-card">
+                <div class="map-header">
+                    <h3>
+                        <span class="logo-icon">📍</span> 2ГИС
+                    </h3>
+                    <a href="https://2gis.ru/novosibirsk/geo/70000001079667405?m=82.978497%2C55.037134%2F17" target="_blank" class="btn-route">
+                        🚗 Проложить маршрут
+                    </a>
+                </div>
+                <div class="map-body">
+                    <iframe 
+                        src="https://maps.2gis.com/widget?url=2gis.ru/novosibirsk/geo/70000001079667405/82.978497,55.037134?m=82.978497%2C55.037134%2F17&redir=1" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="map-footer">
+                    <span>2ГИС — детальные карты, организации, маршруты</span>
+                    <button class="copy-btn" onclick="copyAddress()">📋 Скопировать адрес</button>
+                </div>
+            </div>
+
         </div>
-    </div>
-</section>
 
-<!-- ===== CTA ===== -->
-<section id="cta">
-    <div class="container">
-        <div class="cta-block">
-            <h2>Начните <span style="color: #fff;">преображение</span> уже сегодня</h2>
-            <p>Запишитесь на бесплатную консультацию. Осталось всего 4 места на эту неделю.</p>
-            <a href="https://wa.me/79999999999?text=Привет!%20Записываюсь%20на%20консультацию%20в%20МИНУСРАЗМЕР%20(Новосибирск)" class="btn-white">
-                📱 Записаться на консультацию
+        <!-- ===== ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ===== -->
+        <div style="margin-top: 40px; background: var(--white); border-radius: var(--radius); padding: 28px 32px; box-shadow: var(--shadow); border: 1px solid rgba(10,102,194,0.05); text-align: center;">
+            <h3 style="font-size: 20px; color: #1A2A3A;">🚪 Как нас найти</h3>
+            <p style="color: var(--text-gray); margin-top: 6px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Вход со стороны улицы Бориса Богаткова. Домофон <strong>605</strong>. 
+                6-й этаж, помещение 605. Рядом остановка транспорта «ГПНТБ».
+            </p>
+            <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">🕐 Пн–Вс: 10:00–21:00</span>
+                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">📞 +7 (999) 999-99-99</span>
+                <span style="background: var(--bg-light); padding: 6px 18px; border-radius: 40px; font-size: 14px; color: var(--primary);">🅿️ Бесплатная парковка</span>
+            </div>
+        </div>
+
+        <!-- ===== КНОПКА НАЗАД НА ГЛАВНУЮ ===== -->
+        <div style="text-align: center; margin-top: 32px;">
+            <a href="/" style="color: var(--primary); font-weight: 600; text-decoration: none; font-size: 16px; transition: 0.3s; display: inline-block; padding: 12px 28px; border: 2px solid var(--primary); border-radius: 40px;">
+                ← Вернуться на главную
             </a>
         </div>
+
     </div>
-</section>
 
-<!-- ===== ФУТЕР ===== -->
-<footer class="footer container">
-    <div>© 2026 МИНУСРАЗМЕР. Все права защищены.</div>
-    <div>Новосибирск, ул. Бориса Богаткова 248а, 6 этаж, пом. 605 | <a href="tel:+79999999999">+7 (999) 999-99-99</a></div>
-    <div style="color: var(--primary); font-weight: 600;">Работаем по предварительной записи</div>
-</footer>
-
-<!-- ===== FLOATING WHATSAPP ===== -->
-<a href="https://wa.me/79999999999?text=Привет!%20Хочу%20записаться%20на%20консультацию" class="floating-cta" aria-label="Написать в WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.59 2 2.17 6.42 2.17 11.87c0 1.75.46 3.45 1.33 4.95L2 22l5.31-1.39c1.45.79 3.08 1.21 4.73 1.21 5.45 0 9.87-4.42 9.87-9.87S17.49 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.19-.31c-.82-1.33-1.26-2.87-1.26-4.45 0-4.54 3.7-8.24 8.24-8.24s8.24 3.7 8.24 8.24-3.7 8.31-8.24 8.31z"/></svg>
-    <span>Записаться</span>
-</a>
+    <script>
+        // Копирование адреса в буфер обмена
+        function copyAddress() {
+            const address = 'Новосибирск, ул. Бориса Богаткова, 248а, 6 этаж, помещение 605';
+            navigator.clipboard.writeText(address).then(() => {
+                const btns = document.querySelectorAll('.copy-btn');
+                btns.forEach(btn => {
+                    btn.textContent = '✅ Скопировано!';
+                    setTimeout(() => { btn.textContent = '📋 Скопировать адрес'; }, 2500);
+                });
+            }).catch(() => {
+                alert('Скопируйте адрес вручную: ' + address);
+            });
+        }
+    </script>
 
 </body>
 </html>
