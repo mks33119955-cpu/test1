@@ -36,6 +36,39 @@
             --radius: 20px;
         }
 
+        /* ===== КНОПКА НА ГЛАВНУЮ ===== */
+        .back-link {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(10, 102, 194, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 40px rgba(10, 102, 194, 0.35);
+            background: linear-gradient(135deg, #1A86E8, #00D4FF);
+        }
+
+        .btn-back:active {
+            transform: scale(0.97);
+        }
+
         .page-header {
             text-align: center;
             margin-bottom: 40px;
@@ -281,6 +314,14 @@
 <body>
 
     <div class="container">
+
+        <!-- ===== КНОПКА НА ГЛАВНЫЙ САЙТ ===== -->
+        <div class="back-link">
+            <a href="https://минусразмер.рф" target="_blank" class="btn-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                На главный сайт
+            </a>
+        </div>
 
         <!-- ===== ЗАГОЛОВОК ===== -->
         <div class="page-header">
